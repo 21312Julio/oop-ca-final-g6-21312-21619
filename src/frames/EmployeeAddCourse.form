@@ -28,6 +28,7 @@
   <SubComponents>
     <Container class="javax.swing.JInternalFrame" name="jInternalFrameCoursesAdd">
       <Properties>
+        <Property name="maximizable" type="boolean" value="true"/>
         <Property name="visible" type="boolean" value="true"/>
       </Properties>
       <Constraints>
@@ -259,6 +260,9 @@
               </SubComponents>
             </Container>
             <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldCourseSearch">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFormattedTextFieldCourseSearchActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelCourseId">
               <Properties>

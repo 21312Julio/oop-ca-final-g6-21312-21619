@@ -70,6 +70,7 @@ public class EmployeeAddCourse extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
+        jInternalFrameCoursesAdd.setMaximizable(true);
         jInternalFrameCoursesAdd.setVisible(true);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -118,6 +119,12 @@ public class EmployeeAddCourse extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(jTableCourses);
+
+        jFormattedTextFieldCourseSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormattedTextFieldCourseSearchActionPerformed(evt);
+            }
+        });
 
         jLabelCourseId.setText("ID");
 
@@ -485,6 +492,10 @@ public class EmployeeAddCourse extends javax.swing.JFrame {
         
         connection.Desconnect();
     }//GEN-LAST:event_jTableCoursesMouseClicked
+
+    private void jFormattedTextFieldCourseSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldCourseSearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFormattedTextFieldCourseSearchActionPerformed
 
     
     public void FillCourseTable(String sql) {

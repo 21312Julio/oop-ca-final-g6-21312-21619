@@ -9,26 +9,14 @@ package models;
  *
  * @author julio
  */
-
-public class Student {
+public class Lecturer {
     
     private String name;
-    private String passport;
     private String phone;
     private String address;
-    private String nationality;
     private String id;
     private String password;
     private String search;
-    private String courseID;
-
-    public String getCourseID() {
-        return courseID;
-    }
-
-    public void setCourseID(String courseID) {
-        this.courseID = courseID;
-    }
 
     public String getSearch() {
         return search;
@@ -44,14 +32,6 @@ public class Student {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getPassport() {
-        return passport;
-    }
-
-    public void setPassport(String passport) {
-        this.passport = passport;
     }
 
     public String getPhone() {
@@ -70,29 +50,12 @@ public class Student {
         this.address = address;
     }
 
-    public String getNationality() {
-        return nationality;
-    }
-
-    public void setNationality(String nationality) {
-        this.nationality = nationality;
-    }
-
     public String getId() {
         return id;
     }
 
     public void setId(String id) {
         this.id = id;
-    }
-    
-    public String createId() {
-        String name = this.name.toLowerCase();
-        String ftName = name.substring(0,2);
-        String passport = this.passport.toLowerCase();
-        String ftPassport = passport.substring(0,3);
-        String id = ftName + ftPassport;
-        return id;
     }
 
     public String getPassword() {
@@ -103,6 +66,13 @@ public class Student {
         this.password = password;
     }
     
-    
+    public String createId() {
+        String name = this.name.toLowerCase();
+        String ftName = name.substring(0,2);
+        String phone = this.phone;
+        String ftPhone = phone.substring(5,7);
+        String id = ftName + ftPhone;
+        return id;
+    }
     
 }

@@ -61,6 +61,8 @@ public class EmployeeAddStudent extends javax.swing.JFrame {
         jFormattedTextFieldStudentId = new javax.swing.JFormattedTextField();
         jLabel5 = new javax.swing.JLabel();
         jFormattedTextFieldStudentPassword = new javax.swing.JFormattedTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jFormattedTextFieldCourseID = new javax.swing.JFormattedTextField();
         jButtonAddStudent = new javax.swing.JButton();
         jButtonSaveStudent = new javax.swing.JButton();
         jButtonCancelStudent = new javax.swing.JButton();
@@ -138,6 +140,15 @@ public class EmployeeAddStudent extends javax.swing.JFrame {
 
         jFormattedTextFieldStudentPassword.setEnabled(false);
 
+        jLabel6.setText("CourseID");
+
+        jFormattedTextFieldCourseID.setEnabled(false);
+        jFormattedTextFieldCourseID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormattedTextFieldCourseIDActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -151,9 +162,9 @@ public class EmployeeAddStudent extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jFormattedTextFieldStudentPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jFormattedTextFieldStudentSearch))
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jFormattedTextFieldCourseID))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -180,13 +191,17 @@ public class EmployeeAddStudent extends javax.swing.JFrame {
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jFormattedTextFieldStudentAddress)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jFormattedTextFieldStudentSearch)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(7, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelStudentName)
                     .addComponent(jFormattedTextFieldStudentName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -208,11 +223,15 @@ public class EmployeeAddStudent extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jFormattedTextFieldStudentPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
+                    .addComponent(jLabel6)
+                    .addComponent(jFormattedTextFieldCourseID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jFormattedTextFieldStudentSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(13, 13, 13)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
         );
 
         jButtonAddStudent.setText("Add");
@@ -294,10 +313,20 @@ public class EmployeeAddStudent extends javax.swing.JFrame {
         jInternalFrameCoursesAdd.setBounds(160, 60, 560, 370);
 
         jButtonManageLecturers.setText("Manage Lecturers");
+        jButtonManageLecturers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonManageLecturersActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButtonManageLecturers);
         jButtonManageLecturers.setBounds(20, 400, 130, 22);
 
         jButtonManageStudents.setText("Manage Students");
+        jButtonManageStudents.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonManageStudentsActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButtonManageStudents);
         jButtonManageStudents.setBounds(20, 280, 130, 22);
 
@@ -319,7 +348,9 @@ public class EmployeeAddStudent extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonManageCoursesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonManageCoursesActionPerformed
-        // TODO add your handling code here:
+        EmployeeAddCourse screen = new EmployeeAddCourse();
+        screen.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButtonManageCoursesActionPerformed
 
     private void jTableStudentsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableStudentsMouseClicked
@@ -336,6 +367,7 @@ public class EmployeeAddStudent extends javax.swing.JFrame {
             jFormattedTextFieldStudentPass.setText(connection.rs.getString("passport"));
             jFormattedTextFieldStudentPhone.setText(connection.rs.getString("phone"));
             jFormattedTextFieldStudentPassword.setText(connection.rs.getString("password"));
+            jFormattedTextFieldCourseID.setText(connection.rs.getString("courseID"));
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Selection Error:\n" + ex.getMessage());
         }
@@ -369,11 +401,13 @@ public class EmployeeAddStudent extends javax.swing.JFrame {
         jFormattedTextFieldStudentAddress.setEnabled(true);
         jFormattedTextFieldStudentPass.setEnabled(true);
         jFormattedTextFieldStudentPhone.setEnabled(true);
+        jFormattedTextFieldCourseID.setEnabled(true);
         jFormattedTextFieldStudentName.setText("");
         jFormattedTextFieldStudentNatio.setText("");
         jFormattedTextFieldStudentAddress.setText("");
         jFormattedTextFieldStudentPass.setText("");
         jFormattedTextFieldStudentPhone.setText("");
+        jFormattedTextFieldCourseID.setText("");
         jButtonSaveStudent.setEnabled(true);
         jButtonCancelStudent.setEnabled(true);
         jButtonEditStudent.setEnabled(false);
@@ -398,6 +432,9 @@ public class EmployeeAddStudent extends javax.swing.JFrame {
         } else if (jFormattedTextFieldStudentPhone.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Phone Required");
             jFormattedTextFieldStudentPhone.requestFocus();
+        } else if (jFormattedTextFieldCourseID.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Course ID Required");
+            jFormattedTextFieldCourseID.requestFocus();
         } else {
             if (flag==1) {
                 st.setName(jFormattedTextFieldStudentName.getText());
@@ -405,6 +442,7 @@ public class EmployeeAddStudent extends javax.swing.JFrame {
                 st.setAddress(jFormattedTextFieldStudentAddress.getText());
                 st.setPassport(jFormattedTextFieldStudentPass.getText());
                 st.setPhone(jFormattedTextFieldStudentPhone.getText());
+                st.setCourseID(jFormattedTextFieldCourseID.getText());
                 st.setId(st.createId());
                 st.setPassword("12345");
                 sm.SaveStudent(st);
@@ -413,11 +451,13 @@ public class EmployeeAddStudent extends javax.swing.JFrame {
                 jFormattedTextFieldStudentAddress.setText("");
                 jFormattedTextFieldStudentPass.setText("");
                 jFormattedTextFieldStudentPhone.setText("");
+                jFormattedTextFieldCourseID.setText("");
                 jFormattedTextFieldStudentName.setEnabled(false);
                 jFormattedTextFieldStudentNatio.setEnabled(false);
                 jFormattedTextFieldStudentAddress.setEnabled(false);
                 jFormattedTextFieldStudentPass.setEnabled(false);
                 jFormattedTextFieldStudentPhone.setEnabled(false);
+                jFormattedTextFieldCourseID.setEnabled(false);
                 jFormattedTextFieldStudentSearch.setEnabled(true);
                 jButton1.setEnabled(true);
                 jButtonSaveStudent.setEnabled(false);
@@ -432,6 +472,7 @@ public class EmployeeAddStudent extends javax.swing.JFrame {
                 st.setPassport(jFormattedTextFieldStudentPassword.getText());
                 st.setPhone(jFormattedTextFieldStudentPhone.getText());
                 st.setPassword(jFormattedTextFieldStudentPassword.getText());
+                st.setCourseID(jFormattedTextFieldCourseID.getText());
                 sm.EditStudent(st);
                 jFormattedTextFieldStudentName.setText("");
                 jFormattedTextFieldStudentNatio.setText("");
@@ -440,10 +481,12 @@ public class EmployeeAddStudent extends javax.swing.JFrame {
                 jFormattedTextFieldStudentPhone.setText("");
                 jFormattedTextFieldStudentId.setText("");
                 jFormattedTextFieldStudentPassword.setText("");
+                jFormattedTextFieldCourseID.setText("");
                 jFormattedTextFieldStudentName.setEnabled(false);
                 jFormattedTextFieldStudentAddress.setEnabled(false);
+                jFormattedTextFieldStudentPass.setEnabled(false);
                 jFormattedTextFieldStudentPhone.setEnabled(false);
-                jFormattedTextFieldStudentPhone.setEnabled(false);
+                jFormattedTextFieldCourseID.setEnabled(false);
                 jButtonSaveStudent.setEnabled(false);
                 jButtonCancelStudent.setEnabled(false);
                 jButtonAddStudent.setEnabled(true);
@@ -459,6 +502,7 @@ public class EmployeeAddStudent extends javax.swing.JFrame {
         jFormattedTextFieldStudentPass.setEnabled(!true);
         jFormattedTextFieldStudentPhone.setEnabled(!true);
         jFormattedTextFieldStudentPassword.setEnabled(!true);
+        jFormattedTextFieldCourseID.setEnabled(!true);
         jButtonSaveStudent.setEnabled(!true);
         jButtonCancelStudent.setEnabled(!true);
         jButtonAddStudent.setEnabled(true);
@@ -471,6 +515,7 @@ public class EmployeeAddStudent extends javax.swing.JFrame {
         jFormattedTextFieldStudentPhone.setText("");
         jFormattedTextFieldStudentId.setText("");
         jFormattedTextFieldStudentPassword.setText("");
+        jFormattedTextFieldCourseID.setText("");
         jFormattedTextFieldStudentSearch.setText("");
         jButton1.setEnabled(true);
         jFormattedTextFieldStudentSearch.setEnabled(true);
@@ -482,6 +527,7 @@ public class EmployeeAddStudent extends javax.swing.JFrame {
         jFormattedTextFieldStudentAddress.setEnabled(true);
         jFormattedTextFieldStudentPhone.setEnabled(true);
         jFormattedTextFieldStudentPassword.setEnabled(true);
+        jFormattedTextFieldCourseID.setEnabled(true);
         jButtonSaveStudent.setEnabled(true);
         jButtonCancelStudent.setEnabled(true);
         jButtonEditStudent.setEnabled(false);
@@ -502,12 +548,14 @@ public class EmployeeAddStudent extends javax.swing.JFrame {
             jFormattedTextFieldStudentPhone.setText("");
             jFormattedTextFieldStudentId.setText("");
             jFormattedTextFieldStudentPassword.setText("");
+            jFormattedTextFieldCourseID.setText("");
             jFormattedTextFieldStudentName.setEnabled(false);
             jFormattedTextFieldStudentNatio.setEnabled(false);
             jFormattedTextFieldStudentAddress.setEnabled(false);
             jFormattedTextFieldStudentPass.setEnabled(false);
             jFormattedTextFieldStudentPhone.setEnabled(false);
             jFormattedTextFieldStudentId.setEnabled(false);
+            jFormattedTextFieldCourseID.setEnabled(false);
             jButtonSaveStudent.setEnabled(false);
             jButtonAddStudent.setEnabled(true);
             jButtonCancelStudent.setEnabled(false);
@@ -521,10 +569,24 @@ public class EmployeeAddStudent extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jFormattedTextFieldStudentSearchActionPerformed
 
+    private void jFormattedTextFieldCourseIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldCourseIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFormattedTextFieldCourseIDActionPerformed
+
+    private void jButtonManageLecturersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonManageLecturersActionPerformed
+        EmployeeAddLecturer screen = new EmployeeAddLecturer();
+        screen.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButtonManageLecturersActionPerformed
+
+    private void jButtonManageStudentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonManageStudentsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonManageStudentsActionPerformed
+
     private void FillStudentTable(String sql) { 
         ArrayList data = new ArrayList();
         String [] columns = new String[]{"id","name","nationality","address",
-            "passport","phone","password"};
+            "passport","phone","password","courseID"};
         connection.Connection();
         connection.ExecuteSQL(sql);
         try {
@@ -536,7 +598,8 @@ public class EmployeeAddStudent extends javax.swing.JFrame {
                 connection.rs.getString("address"),
                 connection.rs.getString("passport"),
                 connection.rs.getString("phone"),
-                connection.rs.getString("password")});
+                connection.rs.getString("password"),
+                connection.rs.getString("courseID")});
             } while(connection.rs.next());
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Search for another name");
@@ -555,8 +618,10 @@ public class EmployeeAddStudent extends javax.swing.JFrame {
         jTableStudents.getColumnModel().getColumn(4).setResizable(false);
         jTableStudents.getColumnModel().getColumn(5).setPreferredWidth(130);
         jTableStudents.getColumnModel().getColumn(5).setResizable(false);
-        jTableStudents.getColumnModel().getColumn(6).setPreferredWidth(150);
+        jTableStudents.getColumnModel().getColumn(6).setPreferredWidth(70);
         jTableStudents.getColumnModel().getColumn(6).setResizable(false);
+        jTableStudents.getColumnModel().getColumn(7).setPreferredWidth(60);
+        jTableStudents.getColumnModel().getColumn(7).setResizable(false);
         jTableStudents.getTableHeader().setReorderingAllowed(false);
         jTableStudents.setAutoResizeMode(jTableStudents.AUTO_RESIZE_OFF);
         jTableStudents.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -609,6 +674,7 @@ public class EmployeeAddStudent extends javax.swing.JFrame {
     private javax.swing.JButton jButtonManageLecturers;
     private javax.swing.JButton jButtonManageStudents;
     private javax.swing.JButton jButtonSaveStudent;
+    private javax.swing.JFormattedTextField jFormattedTextFieldCourseID;
     private javax.swing.JFormattedTextField jFormattedTextFieldStudentAddress;
     private javax.swing.JFormattedTextField jFormattedTextFieldStudentId;
     private javax.swing.JFormattedTextField jFormattedTextFieldStudentName;
@@ -623,6 +689,7 @@ public class EmployeeAddStudent extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabelEmployeeMainBackground;
     private javax.swing.JLabel jLabelStudentName;
     private javax.swing.JLabel jLabelStudentPassport;

@@ -281,10 +281,20 @@ public class EmployeeAddCourse extends javax.swing.JFrame {
         jInternalFrameCoursesAdd.setBounds(160, 60, 560, 370);
 
         jButtonManageLecturers.setText("Manage Lecturers");
+        jButtonManageLecturers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonManageLecturersActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButtonManageLecturers);
         jButtonManageLecturers.setBounds(20, 400, 130, 22);
 
         jButtonManageStudents.setText("Manage Students");
+        jButtonManageStudents.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonManageStudentsActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButtonManageStudents);
         jButtonManageStudents.setBounds(20, 280, 130, 22);
 
@@ -496,6 +506,18 @@ public class EmployeeAddCourse extends javax.swing.JFrame {
     private void jFormattedTextFieldCourseSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldCourseSearchActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jFormattedTextFieldCourseSearchActionPerformed
+
+    private void jButtonManageStudentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonManageStudentsActionPerformed
+        EmployeeAddStudent screen = new EmployeeAddStudent();
+        screen.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButtonManageStudentsActionPerformed
+
+    private void jButtonManageLecturersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonManageLecturersActionPerformed
+        EmployeeAddLecturer screen = new EmployeeAddLecturer();
+        screen.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButtonManageLecturersActionPerformed
 
     
     public void FillCourseTable(String sql) {

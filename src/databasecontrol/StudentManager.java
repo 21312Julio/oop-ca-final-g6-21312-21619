@@ -25,8 +25,8 @@ public class StudentManager {
         
         try {
             PreparedStatement pst = connect.con.prepareStatement("INSERT INTO students"
-            + "(id, name, nationality, address, passport, phone, password) VALUES"
-            + "(?,?,?,?,?,?,?)");
+            + "(id, name, nationality, address, passport, phone, password, courseID) VALUES"
+            + "(?,?,?,?,?,?,?,?)");
             pst.setString(1, st.getId());
             pst.setString(2, st.getName());
             pst.setString(3, st.getNationality());
@@ -34,6 +34,7 @@ public class StudentManager {
             pst.setString(5, st.getPassport());
             pst.setString(6, st.getPhone());
             pst.setString(7, st.getPassword());
+            pst.setString(8, st.getCourseID());
             pst.execute();
             JOptionPane.showMessageDialog(null, "Data Insert OK");
         } catch (SQLException ex) {
@@ -55,6 +56,7 @@ public class StudentManager {
             st.setPassport(connect.rs.getString("passport"));
             st.setPhone(connect.rs.getString("phone"));
             st.setPassword(connect.rs.getString("password"));
+            st.setCourseID(connect.rs.getString("courseID"));
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Student Not Registered");
         }
@@ -68,12 +70,13 @@ public class StudentManager {
         
         try {
             PreparedStatement pst = connect.con.prepareStatement("UPDATE students" +
-                    " SET name=?, address=?, phone=?, password=? WHERE id=?");
+                    " SET name=?, address=?, phone=?, password=?, courseID=? WHERE id=?");
             pst.setString(1, st.getName());
             pst.setString(2, st.getAddress());
             pst.setString(3, st.getPhone());
             pst.setString(4, st.getPassword());
-            pst.setString(5, st.getId());
+            pst.setString(5, st.getCourseID());
+            pst.setString(6, st.getId());
             pst.execute();
             JOptionPane.showMessageDialog(null, "Data Updated OK");
         } catch (SQLException ex) {

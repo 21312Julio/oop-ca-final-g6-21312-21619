@@ -39,6 +39,11 @@ public class EmployeeMain extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         jButtonManageLecturers.setText("Manage Lecturers");
+        jButtonManageLecturers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonManageLecturersActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButtonManageLecturers);
         jButtonManageLecturers.setBounds(20, 400, 130, 22);
 
@@ -95,6 +100,12 @@ public class EmployeeMain extends javax.swing.JFrame {
         screen.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonManageStudentsActionPerformed
+
+    private void jButtonManageLecturersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonManageLecturersActionPerformed
+        EmployeeAddLecturer screen = new EmployeeAddLecturer();
+        screen.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButtonManageLecturersActionPerformed
 
     /**
      * @param args the command line arguments

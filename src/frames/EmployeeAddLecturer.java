@@ -66,7 +66,7 @@ public class EmployeeAddLecturer extends javax.swing.JFrame {
         jButtonManageCourses = new javax.swing.JButton();
         jButtonManageStudents = new javax.swing.JButton();
         jButtonManageLecturers = new javax.swing.JButton();
-        jLabelBackground = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -294,9 +294,9 @@ public class EmployeeAddLecturer extends javax.swing.JFrame {
         getContentPane().add(jButtonManageLecturers);
         jButtonManageLecturers.setBounds(20, 400, 130, 22);
 
-        jLabelBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bgemployeemain.png"))); // NOI18N
-        getContentPane().add(jLabelBackground);
-        jLabelBackground.setBounds(-3, -4, 730, 440);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bgemployeemainlecturer.png"))); // NOI18N
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(-3, -4, 730, 440);
 
         setSize(new java.awt.Dimension(739, 469));
         setLocationRelativeTo(null);
@@ -573,10 +573,10 @@ public class EmployeeAddLecturer extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField jFormattedTextFieldLecturerSearch;
     private javax.swing.JInternalFrame jInternalFrameCoursesAdd;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabelBackground;
     private javax.swing.JLabel jLabelStudentName;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

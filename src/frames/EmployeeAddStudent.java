@@ -71,7 +71,7 @@ public class EmployeeAddStudent extends javax.swing.JFrame {
         jButtonManageLecturers = new javax.swing.JButton();
         jButtonManageStudents = new javax.swing.JButton();
         jButtonManageCourses = new javax.swing.JButton();
-        jLabelEmployeeMainBackground = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -339,9 +339,9 @@ public class EmployeeAddStudent extends javax.swing.JFrame {
         getContentPane().add(jButtonManageCourses);
         jButtonManageCourses.setBounds(20, 170, 130, 22);
 
-        jLabelEmployeeMainBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bgemployeemain.png"))); // NOI18N
-        getContentPane().add(jLabelEmployeeMainBackground);
-        jLabelEmployeeMainBackground.setBounds(0, 0, 730, 432);
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bgemployeemainstudent.png"))); // NOI18N
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(0, -10, 730, 450);
 
         setSize(new java.awt.Dimension(739, 469));
         setLocationRelativeTo(null);
@@ -690,7 +690,7 @@ public class EmployeeAddStudent extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabelEmployeeMainBackground;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabelStudentName;
     private javax.swing.JLabel jLabelStudentPassport;
     private javax.swing.JPanel jPanel1;

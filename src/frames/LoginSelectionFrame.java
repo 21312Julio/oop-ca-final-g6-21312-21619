@@ -27,18 +27,44 @@ public class LoginSelectionFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabelMainBackground = new javax.swing.JLabel();
+        jButtonLoginEmployee = new javax.swing.JButton();
+        jButtonLoginLecturer = new javax.swing.JButton();
+        jButtonLoginStudent = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jLabelMainBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bgmainlogin.png"))); // NOI18N
-        getContentPane().add(jLabelMainBackground);
-        jLabelMainBackground.setBounds(-3, -4, 729, 440);
+        jButtonLoginEmployee.setText("Login as Employee");
+        jButtonLoginEmployee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLoginEmployeeActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonLoginEmployee);
+        jButtonLoginEmployee.setBounds(550, 90, 140, 22);
+
+        jButtonLoginLecturer.setText("Login as Lecturer");
+        getContentPane().add(jButtonLoginLecturer);
+        jButtonLoginLecturer.setBounds(550, 210, 140, 22);
+
+        jButtonLoginStudent.setText("Login as Student");
+        getContentPane().add(jButtonLoginStudent);
+        jButtonLoginStudent.setBounds(550, 340, 140, 22);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bgmainlogin.png"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(-3, -4, 730, 440);
 
         setSize(new java.awt.Dimension(739, 469));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonLoginEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginEmployeeActionPerformed
+        EmployeeLoginFrame screen = new EmployeeLoginFrame();
+        screen.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButtonLoginEmployeeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -76,6 +102,9 @@ public class LoginSelectionFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabelMainBackground;
+    private javax.swing.JButton jButtonLoginEmployee;
+    private javax.swing.JButton jButtonLoginLecturer;
+    private javax.swing.JButton jButtonLoginStudent;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

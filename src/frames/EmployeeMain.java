@@ -33,7 +33,7 @@ public class EmployeeMain extends javax.swing.JFrame {
         jButtonManageCourses = new javax.swing.JButton();
         jButtonManageStudents = new javax.swing.JButton();
         jInternalFrameMain = new javax.swing.JInternalFrame();
-        jLabelBackgroundMainEmployee = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -81,9 +81,9 @@ public class EmployeeMain extends javax.swing.JFrame {
         getContentPane().add(jInternalFrameMain);
         jInternalFrameMain.setBounds(160, 60, 560, 370);
 
-        jLabelBackgroundMainEmployee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bgemployeemain.png"))); // NOI18N
-        getContentPane().add(jLabelBackgroundMainEmployee);
-        jLabelBackgroundMainEmployee.setBounds(-3, -4, 730, 440);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bgemployeemain.png"))); // NOI18N
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(0, -10, 730, 450);
 
         setSize(new java.awt.Dimension(739, 469));
         setLocationRelativeTo(null);
@@ -147,6 +147,6 @@ public class EmployeeMain extends javax.swing.JFrame {
     private javax.swing.JButton jButtonManageLecturers;
     private javax.swing.JButton jButtonManageStudents;
     private javax.swing.JInternalFrame jInternalFrameMain;
-    private javax.swing.JLabel jLabelBackgroundMainEmployee;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

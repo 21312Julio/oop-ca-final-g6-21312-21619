@@ -65,7 +65,7 @@ public class EmployeeAddCourse extends javax.swing.JFrame {
         jButtonManageLecturers = new javax.swing.JButton();
         jButtonManageStudents = new javax.swing.JButton();
         jButtonManageCourses = new javax.swing.JButton();
-        jLabelBackgroundMainEmployee = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -307,9 +307,9 @@ public class EmployeeAddCourse extends javax.swing.JFrame {
         getContentPane().add(jButtonManageCourses);
         jButtonManageCourses.setBounds(20, 170, 130, 22);
 
-        jLabelBackgroundMainEmployee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bgemployeemain.png"))); // NOI18N
-        getContentPane().add(jLabelBackgroundMainEmployee);
-        jLabelBackgroundMainEmployee.setBounds(-3, -4, 730, 440);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bgemployeemaincourse.png"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, -10, 730, 450);
 
         setSize(new java.awt.Dimension(739, 469));
         setLocationRelativeTo(null);
@@ -610,7 +610,7 @@ public class EmployeeAddCourse extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField jFormattedTextFieldCourseName;
     private javax.swing.JFormattedTextField jFormattedTextFieldCourseSearch;
     private javax.swing.JInternalFrame jInternalFrameCoursesAdd;
-    private javax.swing.JLabel jLabelBackgroundMainEmployee;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelClassroomCourse;
     private javax.swing.JLabel jLabelCourseId;
     private javax.swing.JLabel jLabelDayCourse;

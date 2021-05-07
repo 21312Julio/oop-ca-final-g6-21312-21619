@@ -1,5 +1,11 @@
 package frames;
 
+import databasecontrol.DatabaseConnection;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -12,11 +18,15 @@ package frames;
  */
 public class LecturerLoginFrame extends javax.swing.JFrame {
 
+    DatabaseConnection connection = new DatabaseConnection();
+    
+    
     /**
      * Creates new form LecturerLoginFrame
      */
     public LecturerLoginFrame() {
         initComponents();
+        connection.Connection();
     }
 
     /**
@@ -28,17 +38,71 @@ public class LecturerLoginFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButtonExit = new javax.swing.JButton();
+        jTextFieldUser = new javax.swing.JTextField();
+        jPasswordFieldLogin = new javax.swing.JPasswordField();
+        jButtonLogin = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
+        jButtonExit.setText("Back");
+        jButtonExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonExitActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonExit);
+        jButtonExit.setBounds(640, 10, 80, 22);
+
+        jTextFieldUser.setText("username...");
+        getContentPane().add(jTextFieldUser);
+        jTextFieldUser.setBounds(510, 190, 160, 22);
+
+        jPasswordFieldLogin.setText("password...");
+        getContentPane().add(jPasswordFieldLogin);
+        jPasswordFieldLogin.setBounds(510, 240, 160, 22);
+
+        jButtonLogin.setText("Login");
+        jButtonLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLoginActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonLogin);
+        jButtonLogin.setBounds(550, 290, 80, 22);
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bglecturerlogin.png"))); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(1, -4, 730, 440);
 
-        setBounds(0, 0, 739, 469);
+        setSize(new java.awt.Dimension(739, 469));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExitActionPerformed
+        LoginSelectionFrame screen = new LoginSelectionFrame();
+        screen.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButtonExitActionPerformed
+
+    private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
+
+        try {
+            connection.ExecuteSQL("SELECT *FROM lecturers WHERE id='"+jTextFieldUser.getText()+"'");
+            connection.rs.first();
+            if (connection.rs.getString("password").equals(jPasswordFieldLogin.getText())) {
+                LecturerMain screen = new LecturerMain();
+                screen.setVisible(true);
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Invalid User/Password");
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Invalid User/Password: "+ex);
+        }
+    }//GEN-LAST:event_jButtonLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -76,6 +140,10 @@ public class LecturerLoginFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonExit;
+    private javax.swing.JButton jButtonLogin;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPasswordField jPasswordFieldLogin;
+    private javax.swing.JTextField jTextFieldUser;
     // End of variables declaration//GEN-END:variables
 }

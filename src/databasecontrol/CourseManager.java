@@ -103,4 +103,24 @@ public class CourseManager {
         connect.Desconnect();
     }
     
+    public Courses searchCoursesForLecturer(Courses co) {
+        connect.Connection();
+        
+        connect.ExecuteSQL("SELECT *FROM courses WHERE lecturer LIKE'%" +
+                co.getSearch() + "%'");
+        try {
+            connect.rs.first();
+            co.setId(connect.rs.getString("id"));
+            co.setName(connect.rs.getString("name"));
+            co.setLecturer(connect.rs.getString("lecturer"));
+            co.setClassroom(connect.rs.getString("classroom"));
+            co.setTime(connect.rs.getString("time"));
+            co.setDay(connect.rs.getString("day"));
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "ID Not Registered");
+        }
+        
+        connect.Desconnect();
+        return co;
+    }
 }

@@ -442,7 +442,7 @@ public class EmployeeAddStudent extends javax.swing.JFrame {
                 st.setAddress(jFormattedTextFieldStudentAddress.getText());
                 st.setPassport(jFormattedTextFieldStudentPass.getText());
                 st.setPhone(jFormattedTextFieldStudentPhone.getText());
-                st.setCourseID(jFormattedTextFieldCourseID.getText());
+                st.setCourseID("VGC"+jFormattedTextFieldCourseID.getText());
                 st.setId(st.createId());
                 st.setPassword("12345");
                 sm.SaveStudent(st);

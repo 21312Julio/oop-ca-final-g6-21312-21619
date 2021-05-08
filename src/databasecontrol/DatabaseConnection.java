@@ -32,6 +32,16 @@ public class DatabaseConnection {
         
     }
     
+    public void ExecuteSQLCreate(String sql) {
+        try {
+            stm = con.createStatement(rs.TYPE_SCROLL_INSENSITIVE, rs.CONCUR_READ_ONLY);
+            stm.execute(sql);
+            JOptionPane.showMessageDialog(null, "Executed successfully!");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "ExecuteSQL Error:\n" + ex.getMessage());
+        }
+    }
+    
     public void ExecuteSQL(String sql) {
         try {
             stm = con.createStatement(rs.TYPE_SCROLL_INSENSITIVE, rs.CONCUR_READ_ONLY);

@@ -5,16 +5,22 @@
  */
 package frames;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.ListSelectionModel;
+import models.CoursesTable;
+
 /**
  *
  * @author julio
  */
-public class LecturerMain extends javax.swing.JFrame {
+public class LecturerTests extends javax.swing.JFrame {
 
     /**
-     * Creates new form LecturerMain
+     * Creates new form LecturerCourse
      */
-    public LecturerMain() {
+    public LecturerTests() {
         initComponents();
     }
 
@@ -28,9 +34,13 @@ public class LecturerMain extends javax.swing.JFrame {
     private void initComponents() {
 
         jInternalFrame1 = new javax.swing.JInternalFrame();
-        jButtonTests = new javax.swing.JButton();
+        jButtonNewActivity = new javax.swing.JButton();
+        jFormattedTextFieldSearchStudents = new javax.swing.JFormattedTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableCourses = new javax.swing.JTable();
         jButtonCourses1 = new javax.swing.JButton();
         jButtonAttendance = new javax.swing.JButton();
+        jButtonTests = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -39,28 +49,49 @@ public class LecturerMain extends javax.swing.JFrame {
         jInternalFrame1.setMaximizable(true);
         jInternalFrame1.setVisible(true);
 
+        jButtonNewActivity.setText("New");
+
+        jTableCourses.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane1.setViewportView(jTableCourses);
+
         javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
         jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
         jInternalFrame1Layout.setHorizontalGroup(
             jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jInternalFrame1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 556, Short.MAX_VALUE)
+                    .addGroup(jInternalFrame1Layout.createSequentialGroup()
+                        .addComponent(jButtonNewActivity, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jFormattedTextFieldSearchStudents)))
+                .addContainerGap())
         );
         jInternalFrame1Layout.setVerticalGroup(
             jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jInternalFrame1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonNewActivity)
+                    .addComponent(jFormattedTextFieldSearchStudents, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         getContentPane().add(jInternalFrame1);
         jInternalFrame1.setBounds(140, 60, 580, 370);
-
-        jButtonTests.setText("Tests");
-        jButtonTests.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonTestsActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonTests);
-        jButtonTests.setBounds(30, 400, 100, 22);
 
         jButtonCourses1.setText("Courses");
         jButtonCourses1.addActionListener(new java.awt.event.ActionListener() {
@@ -80,29 +111,34 @@ public class LecturerMain extends javax.swing.JFrame {
         getContentPane().add(jButtonAttendance);
         jButtonAttendance.setBounds(30, 280, 100, 22);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bglecturermain.png"))); // NOI18N
+        jButtonTests.setText("Tests");
+        jButtonTests.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonTestsActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonTests);
+        jButtonTests.setBounds(30, 400, 100, 22);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bglecturermaintests.png"))); // NOI18N
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(1, -4, 730, 440);
+        jLabel1.setBounds(0, -3, 730, 440);
 
         setSize(new java.awt.Dimension(739, 469));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonTestsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTestsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonTestsActionPerformed
-
     private void jButtonCourses1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCourses1ActionPerformed
-        LecturerTests screen = new LecturerTests();
-        screen.setVisible(true);
-        dispose();
+        // TODO add your handling code here:
     }//GEN-LAST:event_jButtonCourses1ActionPerformed
 
     private void jButtonAttendanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAttendanceActionPerformed
-        LecturerAttendance screen = new LecturerAttendance();
-        screen.setVisible(true);
-        dispose();
+        // TODO add your handling code here:
     }//GEN-LAST:event_jButtonAttendanceActionPerformed
+
+    private void jButtonTestsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTestsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonTestsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -121,20 +157,21 @@ public class LecturerMain extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LecturerMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LecturerTests.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LecturerMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LecturerTests.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LecturerMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LecturerTests.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LecturerMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LecturerTests.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LecturerMain().setVisible(true);
+                new LecturerTests().setVisible(true);
             }
         });
     }
@@ -142,8 +179,12 @@ public class LecturerMain extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAttendance;
     private javax.swing.JButton jButtonCourses1;
+    private javax.swing.JButton jButtonNewActivity;
     private javax.swing.JButton jButtonTests;
+    private javax.swing.JFormattedTextField jFormattedTextFieldSearchStudents;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTableCourses;
     // End of variables declaration//GEN-END:variables
 }

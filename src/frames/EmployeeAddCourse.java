@@ -129,6 +129,11 @@ public class EmployeeAddCourse extends javax.swing.JFrame {
         jLabelCourseId.setText("ID");
 
         jFormattedTextFieldCourseId.setEnabled(false);
+        jFormattedTextFieldCourseId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormattedTextFieldCourseIdActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Search");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -334,7 +339,7 @@ public class EmployeeAddCourse extends javax.swing.JFrame {
             jFormattedTextFieldCourseClassroom.requestFocus();
         } else {
             if(flag==1) {
-                co.setId(jFormattedTextFieldCourseId.getText());
+                co.setId("VGC"+jFormattedTextFieldCourseId.getText());
                 co.setName(jFormattedTextFieldCourseName.getText());
                 co.setLecturer(jFormattedTextFieldCourseLecturer.getText());
                 co.setClassroom(jFormattedTextFieldCourseClassroom.getText());
@@ -518,6 +523,10 @@ public class EmployeeAddCourse extends javax.swing.JFrame {
         screen.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonManageLecturersActionPerformed
+
+    private void jFormattedTextFieldCourseIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldCourseIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFormattedTextFieldCourseIdActionPerformed
 
     
     public void FillCourseTable(String sql) {

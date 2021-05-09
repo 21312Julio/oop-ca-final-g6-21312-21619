@@ -65,6 +65,29 @@ public class StudentManager {
         return st;
     }
     
+    public Student SearchStudentById(String id) {
+        connect.Connection();
+        
+        connect.ExecuteSQL("SELECT *FROM students WHERE id LIKE'%" +
+                id + "%'");
+        try {
+            connect.rs.first();
+            st.setId(connect.rs.getString("id"));
+            st.setName(connect.rs.getString("name"));
+            st.setNationality(connect.rs.getString("nationality"));
+            st.setAddress(connect.rs.getString("address"));
+            st.setPassport(connect.rs.getString("passport"));
+            st.setPhone(connect.rs.getString("phone"));
+            st.setPassword(connect.rs.getString("password"));
+            st.setCourseID(connect.rs.getString("courseID"));
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Student Not Registered");
+        }
+        
+        connect.Desconnect();
+        return st;
+    }
+    
     public void EditStudent(Student st) {
         connect.Connection();
         

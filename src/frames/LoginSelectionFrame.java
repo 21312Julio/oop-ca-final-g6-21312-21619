@@ -54,6 +54,11 @@ public class LoginSelectionFrame extends javax.swing.JFrame {
         jButtonLoginLecturer.setBounds(550, 210, 140, 22);
 
         jButtonLoginStudent.setText("Login as Student");
+        jButtonLoginStudent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLoginStudentActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButtonLoginStudent);
         jButtonLoginStudent.setBounds(550, 340, 140, 22);
 
@@ -76,6 +81,12 @@ public class LoginSelectionFrame extends javax.swing.JFrame {
         screen.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonLoginLecturerActionPerformed
+
+    private void jButtonLoginStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginStudentActionPerformed
+        StudentLoginFrame screen = new StudentLoginFrame();
+        screen.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButtonLoginStudentActionPerformed
 
     /**
      * @param args the command line arguments

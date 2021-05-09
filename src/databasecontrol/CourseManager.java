@@ -11,6 +11,7 @@ import models.Courses;
 import frames.EmployeeAddCourse;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import models.Student;
 
 /**
  *
@@ -20,6 +21,7 @@ public class CourseManager {
     
     DatabaseConnection connect = new DatabaseConnection();
     Courses co = new Courses();
+    Student st = new Student();
     
     public void SaveCourse(Courses co) {
         connect.Connection();
@@ -49,6 +51,27 @@ public class CourseManager {
         
         connect.ExecuteSQL("SELECT *FROM courses WHERE id LIKE'%" +
                 co.getSearch() + "%'");
+        try {
+            connect.rs.first();
+            co.setId(connect.rs.getString("id"));
+            co.setName(connect.rs.getString("name"));
+            co.setLecturer(connect.rs.getString("lecturer"));
+            co.setClassroom(connect.rs.getString("classroom"));
+            co.setTime(connect.rs.getString("time"));
+            co.setDay(connect.rs.getString("day"));
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "ID Not Registered");
+        }
+        
+        connect.Desconnect();
+        return co;
+    }
+    
+    public Courses searchCoursesForStudent(Student st, Courses co) {
+        connect.Connection();
+        
+        connect.ExecuteSQL("SELECT *FROM courses WHERE id LIKE'%" +
+                st.getCourseID() + "%'");
         try {
             connect.rs.first();
             co.setId(connect.rs.getString("id"));

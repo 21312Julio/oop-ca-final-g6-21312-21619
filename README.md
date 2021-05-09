@@ -6,9 +6,10 @@
 ## Julio Costa 21312
 ## Lucas Costa 21619
 
-## GitHub Link and Youtube Walkthrough
+## GitHub Link, Figma and Youtube Walkthrough
 * Git | https://github.com/21312Julio/oop-ca-final-g6-21312-21619.git
 * Youtube | 
+* Figma | https://www.figma.com/file/B3dx4DT1u1hVfqj7BPRYLj/CollegeCAOOPApplication?node-id=0%3A1
 
 ## Software, Third Party Libraries and Report
 * NetBeans 12.3 | https://netbeans.apache.org/download/index.html

@@ -31,6 +31,7 @@ public class LecturerMain extends javax.swing.JFrame {
         jButtonTests = new javax.swing.JButton();
         jButtonCourses1 = new javax.swing.JButton();
         jButtonAttendance = new javax.swing.JButton();
+        jButtonLOGOFF = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -80,6 +81,15 @@ public class LecturerMain extends javax.swing.JFrame {
         getContentPane().add(jButtonAttendance);
         jButtonAttendance.setBounds(30, 280, 100, 22);
 
+        jButtonLOGOFF.setText("Log Off");
+        jButtonLOGOFF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLOGOFFActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonLOGOFF);
+        jButtonLOGOFF.setBounds(640, 10, 72, 22);
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bglecturermain.png"))); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(1, -4, 730, 440);
@@ -89,11 +99,13 @@ public class LecturerMain extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonTestsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTestsActionPerformed
-        // TODO add your handling code here:
+        LecturerTests screen = new LecturerTests();
+        screen.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButtonTestsActionPerformed
 
     private void jButtonCourses1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCourses1ActionPerformed
-        LecturerTests screen = new LecturerTests();
+        LecturerCourse screen = new LecturerCourse();
         screen.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonCourses1ActionPerformed
@@ -103,6 +115,12 @@ public class LecturerMain extends javax.swing.JFrame {
         screen.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonAttendanceActionPerformed
+
+    private void jButtonLOGOFFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLOGOFFActionPerformed
+        LoginSelectionFrame screen = new LoginSelectionFrame();
+        screen.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButtonLOGOFFActionPerformed
 
     /**
      * @param args the command line arguments
@@ -142,6 +160,7 @@ public class LecturerMain extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAttendance;
     private javax.swing.JButton jButtonCourses1;
+    private javax.swing.JButton jButtonLOGOFF;
     private javax.swing.JButton jButtonTests;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;

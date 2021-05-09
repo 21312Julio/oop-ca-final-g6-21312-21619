@@ -33,6 +33,7 @@ public class EmployeeMain extends javax.swing.JFrame {
         jButtonManageCourses = new javax.swing.JButton();
         jButtonManageStudents = new javax.swing.JButton();
         jInternalFrameMain = new javax.swing.JInternalFrame();
+        jButtonLOGOFF = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -81,6 +82,15 @@ public class EmployeeMain extends javax.swing.JFrame {
         getContentPane().add(jInternalFrameMain);
         jInternalFrameMain.setBounds(160, 60, 560, 370);
 
+        jButtonLOGOFF.setText("Log Off");
+        jButtonLOGOFF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLOGOFFActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonLOGOFF);
+        jButtonLOGOFF.setBounds(640, 10, 72, 22);
+
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bgemployeemain.png"))); // NOI18N
         getContentPane().add(jLabel2);
         jLabel2.setBounds(0, -10, 730, 450);
@@ -106,6 +116,12 @@ public class EmployeeMain extends javax.swing.JFrame {
         screen.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonManageLecturersActionPerformed
+
+    private void jButtonLOGOFFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLOGOFFActionPerformed
+        LoginSelectionFrame screen = new LoginSelectionFrame();
+        screen.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButtonLOGOFFActionPerformed
 
     /**
      * @param args the command line arguments
@@ -143,6 +159,7 @@ public class EmployeeMain extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonLOGOFF;
     private javax.swing.JButton jButtonManageCourses;
     private javax.swing.JButton jButtonManageLecturers;
     private javax.swing.JButton jButtonManageStudents;

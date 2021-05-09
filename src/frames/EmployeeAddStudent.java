@@ -71,6 +71,7 @@ public class EmployeeAddStudent extends javax.swing.JFrame {
         jButtonManageLecturers = new javax.swing.JButton();
         jButtonManageStudents = new javax.swing.JButton();
         jButtonManageCourses = new javax.swing.JButton();
+        jButtonLOGOFF = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -339,6 +340,15 @@ public class EmployeeAddStudent extends javax.swing.JFrame {
         getContentPane().add(jButtonManageCourses);
         jButtonManageCourses.setBounds(20, 170, 130, 22);
 
+        jButtonLOGOFF.setText("Log Off");
+        jButtonLOGOFF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLOGOFFActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonLOGOFF);
+        jButtonLOGOFF.setBounds(640, 10, 72, 22);
+
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bgemployeemainstudent.png"))); // NOI18N
         getContentPane().add(jLabel7);
         jLabel7.setBounds(0, -10, 730, 450);
@@ -583,6 +593,12 @@ public class EmployeeAddStudent extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonManageStudentsActionPerformed
 
+    private void jButtonLOGOFFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLOGOFFActionPerformed
+        LoginSelectionFrame screen = new LoginSelectionFrame();
+        screen.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButtonLOGOFFActionPerformed
+
     private void FillStudentTable(String sql) { 
         ArrayList data = new ArrayList();
         String [] columns = new String[]{"id","name","nationality","address",
@@ -670,6 +686,7 @@ public class EmployeeAddStudent extends javax.swing.JFrame {
     private javax.swing.JButton jButtonCancelStudent;
     private javax.swing.JButton jButtonDeleteStudent;
     private javax.swing.JButton jButtonEditStudent;
+    private javax.swing.JButton jButtonLOGOFF;
     private javax.swing.JButton jButtonManageCourses;
     private javax.swing.JButton jButtonManageLecturers;
     private javax.swing.JButton jButtonManageStudents;

@@ -63,6 +63,7 @@ public class LecturerAttendance extends javax.swing.JFrame {
         jButtonTests = new javax.swing.JButton();
         jButtonAttendance = new javax.swing.JButton();
         jButtonCourses1 = new javax.swing.JButton();
+        jButtonLOGOFF = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -204,6 +205,15 @@ public class LecturerAttendance extends javax.swing.JFrame {
         getContentPane().add(jButtonCourses1);
         jButtonCourses1.setBounds(30, 170, 100, 22);
 
+        jButtonLOGOFF.setText("Log Off");
+        jButtonLOGOFF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLOGOFFActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonLOGOFF);
+        jButtonLOGOFF.setBounds(640, 10, 72, 22);
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bglecturermainattendance.png"))); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, -10, 730, 450);
@@ -213,15 +223,21 @@ public class LecturerAttendance extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonTestsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTestsActionPerformed
-        // TODO add your handling code here:
+        LecturerTests screen = new LecturerTests();
+        screen.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButtonTestsActionPerformed
 
     private void jButtonAttendanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAttendanceActionPerformed
-        // TODO add your handling code here:
+        LecturerAttendance screen = new LecturerAttendance();
+        screen.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButtonAttendanceActionPerformed
 
     private void jButtonCourses1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCourses1ActionPerformed
-        // TODO add your handling code here:
+        LecturerCourse screen = new LecturerCourse();
+        screen.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButtonCourses1ActionPerformed
 
     private void jButtonCreateAttendanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateAttendanceActionPerformed
@@ -292,6 +308,12 @@ public class LecturerAttendance extends javax.swing.JFrame {
         jButtonUpdate.setEnabled(false);
         jButtonCreateAttendance.setEnabled(true);
     }//GEN-LAST:event_jButtonUpdateActionPerformed
+
+    private void jButtonLOGOFFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLOGOFFActionPerformed
+        LoginSelectionFrame screen = new LoginSelectionFrame();
+        screen.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButtonLOGOFFActionPerformed
 
     private void FillAttendanceTable(Attendance att) {
         att.setSearch(jFormattedTextFieldAttendanceList.getText());
@@ -367,6 +389,7 @@ public class LecturerAttendance extends javax.swing.JFrame {
     private javax.swing.JButton jButtonAttendance;
     private javax.swing.JButton jButtonCourses1;
     private javax.swing.JButton jButtonCreateAttendance;
+    private javax.swing.JButton jButtonLOGOFF;
     private javax.swing.JButton jButtonTests;
     private javax.swing.JButton jButtonUpdate;
     private javax.swing.JFormattedTextField jFormattedTextFieldAttendanceList;

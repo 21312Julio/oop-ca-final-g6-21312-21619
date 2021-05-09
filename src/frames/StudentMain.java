@@ -223,6 +223,11 @@ public class StudentMain extends javax.swing.JFrame {
         jButtonInformation.setBounds(20, 200, 120, 22);
 
         jButtonTests.setText("Tests");
+        jButtonTests.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonTestsActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButtonTests);
         jButtonTests.setBounds(20, 370, 120, 22);
 
@@ -240,10 +245,12 @@ public class StudentMain extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButtonLOGOFF3ActionPerformed
 
+    private void jButtonTestsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTestsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonTestsActionPerformed
+
     private void jButtonInformationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInformationActionPerformed
-        StudentMain screen = new StudentMain();
-        screen.setVisible(true);
-        dispose();
+
     }//GEN-LAST:event_jButtonInformationActionPerformed
 
     private void FillTestsTable(String sql) { 

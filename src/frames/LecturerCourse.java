@@ -52,8 +52,7 @@ public class LecturerCourse extends javax.swing.JFrame {
         jTableStudents = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableCourses = new javax.swing.JTable();
-        jButtonSearchForStudent = new javax.swing.JButton();
-        jFormattedTextFieldSearchStudent = new javax.swing.JFormattedTextField();
+        jLabel2 = new javax.swing.JLabel();
         jButtonCourses1 = new javax.swing.JButton();
         jButtonAttendance = new javax.swing.JButton();
         jButtonTests = new javax.swing.JButton();
@@ -97,14 +96,14 @@ public class LecturerCourse extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane2.setViewportView(jTableCourses);
-
-        jButtonSearchForStudent.setText("Search for Students");
-        jButtonSearchForStudent.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSearchForStudentActionPerformed(evt);
+        jTableCourses.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableCoursesMouseClicked(evt);
             }
         });
+        jScrollPane2.setViewportView(jTableCourses);
+
+        jLabel2.setText("Classroom");
 
         javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
         jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
@@ -118,11 +117,10 @@ public class LecturerCourse extends javax.swing.JFrame {
                         .addComponent(jButtonSearchForLecturer, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jFormattedTextFieldSearchLecturer))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 556, Short.MAX_VALUE)
                     .addGroup(jInternalFrame1Layout.createSequentialGroup()
-                        .addComponent(jButtonSearchForStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jFormattedTextFieldSearchStudent))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 556, Short.MAX_VALUE))
+                        .addComponent(jLabel2)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jInternalFrame1Layout.setVerticalGroup(
@@ -133,13 +131,11 @@ public class LecturerCourse extends javax.swing.JFrame {
                     .addComponent(jButtonSearchForLecturer)
                     .addComponent(jFormattedTextFieldSearchLecturer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
-                .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jFormattedTextFieldSearchStudent, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonSearchForStudent, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -214,17 +210,22 @@ public class LecturerCourse extends javax.swing.JFrame {
                 co.getSearch() + "%'");
     }//GEN-LAST:event_jButtonSearchForLecturerActionPerformed
 
-    private void jButtonSearchForStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchForStudentActionPerformed
-        st.setSearch(jFormattedTextFieldSearchStudent.getText());
-        FillStudentTable("SELECT *FROM students WHERE courseID LIKE'%" +
-                co.getSearch() + "%'");
-    }//GEN-LAST:event_jButtonSearchForStudentActionPerformed
-
     private void jButtonLOGOFFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLOGOFFActionPerformed
         LoginSelectionFrame screen = new LoginSelectionFrame();
         screen.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonLOGOFFActionPerformed
+
+    private void jTableCoursesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableCoursesMouseClicked
+                                          
+        String id = ""+jTableCourses.getValueAt(jTableCourses.getSelectedRow(), 0);
+        connection.Connection();
+        
+        FillStudentTable("SELECT *FROM students WHERE courseID LIKE'%" +
+                id + "%'");
+        
+        connection.Desconnect();
+    }//GEN-LAST:event_jTableCoursesMouseClicked
 
     public void FillCourseTable(String sql) {
         ArrayList data = new ArrayList();
@@ -257,7 +258,7 @@ public class LecturerCourse extends javax.swing.JFrame {
         jTableCourses.getColumnModel().getColumn(3).setResizable(false);
         jTableCourses.getColumnModel().getColumn(4).setPreferredWidth(100);
         jTableCourses.getColumnModel().getColumn(4).setResizable(false);
-        jTableCourses.getColumnModel().getColumn(5).setPreferredWidth(80);
+        jTableCourses.getColumnModel().getColumn(5).setPreferredWidth(100);
         jTableCourses.getColumnModel().getColumn(5).setResizable(false);
         jTableCourses.getTableHeader().setReorderingAllowed(false);
         jTableCourses.setAutoResizeMode(jTableCourses.AUTO_RESIZE_OFF);
@@ -303,7 +304,7 @@ public class LecturerCourse extends javax.swing.JFrame {
         jTableStudents.getColumnModel().getColumn(5).setResizable(false);
         jTableStudents.getColumnModel().getColumn(6).setPreferredWidth(70);
         jTableStudents.getColumnModel().getColumn(6).setResizable(false);
-        jTableStudents.getColumnModel().getColumn(7).setPreferredWidth(60);
+        jTableStudents.getColumnModel().getColumn(7).setPreferredWidth(130);
         jTableStudents.getColumnModel().getColumn(7).setResizable(false);
         jTableStudents.getTableHeader().setReorderingAllowed(false);
         jTableStudents.setAutoResizeMode(jTableStudents.AUTO_RESIZE_OFF);
@@ -352,12 +353,11 @@ public class LecturerCourse extends javax.swing.JFrame {
     private javax.swing.JButton jButtonCourses1;
     private javax.swing.JButton jButtonLOGOFF;
     private javax.swing.JButton jButtonSearchForLecturer;
-    private javax.swing.JButton jButtonSearchForStudent;
     private javax.swing.JButton jButtonTests;
     private javax.swing.JFormattedTextField jFormattedTextFieldSearchLecturer;
-    private javax.swing.JFormattedTextField jFormattedTextFieldSearchStudent;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTableCourses;

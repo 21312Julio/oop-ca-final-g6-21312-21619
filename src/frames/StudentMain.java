@@ -9,9 +9,14 @@ import databasecontrol.CourseManager;
 import databasecontrol.DatabaseConnection;
 import databasecontrol.StudentManager;
 import java.sql.Date;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.ListSelectionModel;
 import models.Courses;
 import models.Student;
+import models.TestsTable;
 
 /**
  *
@@ -45,6 +50,8 @@ public class StudentMain extends javax.swing.JFrame {
         jLabelCourseName.setText(co.getName());
         jLabelCourseLecturer.setText(co.getLecturer());
         jLabelCourseTimeDay.setText(co.getTime() + " " + co.getDay());
+        FillTestsTable("SELECT *FROM tests WHERE testid LIKE'%" +
+                co.getId() + "%'");
     }
 
     private StudentMain() {
@@ -239,7 +246,43 @@ public class StudentMain extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButtonInformationActionPerformed
 
-    
+    private void FillTestsTable(String sql) { 
+        ArrayList data = new ArrayList();
+        String [] columns = new String[]{"testid","activitytype","testname","duedate",
+            "percentage"};
+        connection.Connection();
+        connection.ExecuteSQL(sql);
+        try {
+            connection.rs.first();
+            do {
+                data.add(new Object[]{connection.rs.getString("testid"),
+                connection.rs.getString("activitytype"),
+                connection.rs.getString("testname"),
+                connection.rs.getString("duedate"),
+                connection.rs.getString("percentage")});
+            } while(connection.rs.next());
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Search for another name");
+        }
+        
+        TestsTable tesmodel = new TestsTable(data, columns);
+        jTableTests.setModel(tesmodel);
+        jTableTests.getColumnModel().getColumn(0).setPreferredWidth(100);
+        jTableTests.getColumnModel().getColumn(0).setResizable(false);
+        jTableTests.getColumnModel().getColumn(1).setPreferredWidth(150);
+        jTableTests.getColumnModel().getColumn(1).setResizable(false);
+        jTableTests.getColumnModel().getColumn(2).setPreferredWidth(200);
+        jTableTests.getColumnModel().getColumn(2).setResizable(false);
+        jTableTests.getColumnModel().getColumn(3).setPreferredWidth(100);
+        jTableTests.getColumnModel().getColumn(3).setResizable(false);
+        jTableTests.getColumnModel().getColumn(4).setPreferredWidth(100);
+        jTableTests.getColumnModel().getColumn(4).setResizable(false);
+        jTableTests.getTableHeader().setReorderingAllowed(false);
+        jTableTests.setAutoResizeMode(jTableTests.AUTO_RESIZE_OFF);
+        jTableTests.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        
+        connection.Desconnect();
+    }
     
     /**
      * @param args the command line arguments

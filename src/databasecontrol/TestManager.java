@@ -15,11 +15,15 @@ import models.Tests;
  *
  * @author julio
  */
+
+// Manage test class in database
 public class TestManager {
     
     DatabaseConnection connect = new DatabaseConnection();
     Tests tes = new Tests();
     
+    
+    // Save tests in database from inside lecturer test tab
     public void SaveTest(Tests tes) {
         connect.Connection();
         
@@ -39,6 +43,7 @@ public class TestManager {
         }
     }
     
+    // Search for test from inside lecturers tests tab
     public Tests SearchTest(Tests tes) {
         connect.Connection();
         
@@ -59,6 +64,7 @@ public class TestManager {
         return tes;
     }
     
+    // Edit test from inside lectures tests tab
     public void EditTable(Tests tes) {
         connect.Connection();
         
@@ -79,6 +85,7 @@ public class TestManager {
         connect.Desconnect();
     }
     
+    // Delete test from inside lectures tests tab
     public void DeleteTable(Tests tes){
         connect.Connection();
         

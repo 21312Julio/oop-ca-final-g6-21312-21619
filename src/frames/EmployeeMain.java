@@ -16,6 +16,7 @@ public class EmployeeMain extends javax.swing.JFrame {
     DatabaseConnection connection = new DatabaseConnection();
     
     public EmployeeMain() {
+        // Main selection screen for the employee
         initComponents();
         connection.Connection();
     }

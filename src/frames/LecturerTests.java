@@ -22,9 +22,11 @@ import models.TestsTable;
  */
 public class LecturerTests extends javax.swing.JFrame {
     
+    // Initialize variables
     DatabaseConnection connection = new DatabaseConnection();
     TestManager tm = new TestManager();
     Tests tes = new Tests();
+    // Flag variable to change function of update button
     int flag = 0;
 
     /**
@@ -32,6 +34,7 @@ public class LecturerTests extends javax.swing.JFrame {
      */
     public LecturerTests() {
         initComponents();
+        // Fill tests table based on SQL Query
         FillTestsTable("SELECT *FROM tests ORDER BY testid");
     }
 
@@ -289,7 +292,9 @@ public class LecturerTests extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButtonTestsActionPerformed
 
+    // Edit tests selected
     private void jButtonEditTestsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditTestsActionPerformed
+        // Check if text fields are empty
         if (jFormattedTextFieldTestId.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Id Required");
             jFormattedTextFieldTestId.requestFocus();
@@ -300,6 +305,7 @@ public class LecturerTests extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Date Required");
             jFormattedTextFieldTestDate.requestFocus();
         } else {
+            // If flag is set to 1, save information on database
             if (flag == 1) {
                 tes.setId("VGC"+jFormattedTextFieldTestId.getText()
                     +jComboBoxTypeOfAssignment.getSelectedItem().toString().substring(0, 3));
@@ -324,6 +330,7 @@ public class LecturerTests extends javax.swing.JFrame {
                 jButtonDeleteTest.setEnabled(false);
                 FillTestsTable("SELECT *FROM tests ORDER BY testid");
             } else {
+                // If flag is set to 2, update current given information on database
                 tes.setId(jFormattedTextFieldTestId.getText());
                 tes.setName(jFormattedTextFieldTestName.getText());
                 tes.setActivity(jComboBoxTypeOfAssignment.getSelectedItem().toString());
@@ -348,6 +355,7 @@ public class LecturerTests extends javax.swing.JFrame {
         }       
     }//GEN-LAST:event_jButtonEditTestsActionPerformed
 
+    // Set flag to 1 and change function of update button to save on database
     private void jButtonCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateActionPerformed
         flag = 1;
         jFormattedTextFieldTestName.setEnabled(true);
@@ -362,6 +370,8 @@ public class LecturerTests extends javax.swing.JFrame {
         jButtonSearchTests.setEnabled(false);
     }//GEN-LAST:event_jButtonCreateActionPerformed
 
+    // Search for test, return information and set flag to 2 in order to update information when
+    // Button is clicked
     private void jButtonSearchTestsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchTestsActionPerformed
         flag = 2;
         tes.setSearch(jFormattedTextFieldSearchForTest.getText());
@@ -383,6 +393,7 @@ public class LecturerTests extends javax.swing.JFrame {
         jButtonCreate.setEnabled(false);
     }//GEN-LAST:event_jButtonSearchTestsActionPerformed
 
+    // Delete test from database
     private void jButtonDeleteTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteTestActionPerformed
         int answer = 0;
         answer = JOptionPane.showConfirmDialog(rootPane, "Confirm Delete?");
@@ -407,7 +418,10 @@ public class LecturerTests extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonDeleteTestActionPerformed
 
+    // Fill in information text fields above based on jTable selected row and
+    // change function of update button
     private void jTableTestsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableTestsMouseClicked
+        flag = 2;
         String id = ""+jTableTests.getValueAt(jTableTests.getSelectedRow(), 0);
         connection.Connection();
         
@@ -441,6 +455,7 @@ public class LecturerTests extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButtonLOGOFFActionPerformed
 
+    // Fill the tests jTable, looping on result set and adding to array list, which is table model
     private void FillTestsTable(String sql) { 
         ArrayList data = new ArrayList();
         String [] columns = new String[]{"testid","activitytype","testname","duedate",

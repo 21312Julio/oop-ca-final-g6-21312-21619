@@ -24,6 +24,7 @@ import models.AttendanceTable;
  */
 public class LecturerAttendance extends javax.swing.JFrame {
 
+    // Initialize variables
     DatabaseConnection connection = new DatabaseConnection();
     Attendance att = new Attendance();
     AttendanceManager am = new AttendanceManager();
@@ -240,6 +241,8 @@ public class LecturerAttendance extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButtonCourses1ActionPerformed
 
+    // Return list of students with courseid that match the given one and add them to 
+    // a new created table on the database
     private void jButtonCreateAttendanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateAttendanceActionPerformed
         connection.Connection();
         
@@ -265,6 +268,7 @@ public class LecturerAttendance extends javax.swing.JFrame {
         FillAttendanceTable(att);
     }//GEN-LAST:event_jButtonCreateAttendanceActionPerformed
 
+    // Return information about the student selected on the jTable
     private void jTableAttendanceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableAttendanceMouseClicked
         String id = ""+jTableAttendance.getValueAt(jTableAttendance.getSelectedRow(), 1);
         connection.Connection();
@@ -293,6 +297,7 @@ public class LecturerAttendance extends javax.swing.JFrame {
         connection.Desconnect();
     }//GEN-LAST:event_jTableAttendanceMouseClicked
 
+    // Set the student attendance on the database
     private void jButtonUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateActionPerformed
         att.setSearch(jFormattedTextFieldAttendanceList.getText());
         att.setStudentid(jFormattedTextFieldStudentID.getText());
@@ -315,6 +320,7 @@ public class LecturerAttendance extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButtonLOGOFFActionPerformed
 
+    // Fill the attendance jTable, looping on result set and adding to array list, which is table model
     private void FillAttendanceTable(Attendance att) {
         att.setSearch(jFormattedTextFieldAttendanceList.getText());
         String courseID = "VGC"+att.getSearch();

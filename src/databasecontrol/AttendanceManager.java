@@ -17,6 +17,8 @@ import javax.swing.JOptionPane;
  *
  * @author julio
  */
+
+// Managing Attendance Tables on SQL
 public class AttendanceManager {
     
     DatabaseConnection connect = new DatabaseConnection();
@@ -24,7 +26,7 @@ public class AttendanceManager {
     SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
     String date = sdf.format(new Date(System.currentTimeMillis()));
     
-    
+    // Create a new Table on Database for the desired courseid and today's date
     public void CreateTableAttendance(Attendance att) {
         connect.Connection();
         
@@ -37,6 +39,10 @@ public class AttendanceManager {
         connect.Desconnect();
     }
         
+    /**
+     * Fill the table with students that have the same course id as the one specified for
+     * table creation
+     */ 
     public void InsertIntoTable(Attendance att, String[] data) {
         connect.Connection();
         
@@ -60,7 +66,10 @@ public class AttendanceManager {
         connect.Desconnect();
         
     }     
-    
+
+    /**
+     * Update students attendance information every update button is pressed
+     */ 
     public void UpdateInformation(Attendance att) {
         connect.Connection();
         

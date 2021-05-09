@@ -20,9 +20,11 @@ import models.LecturerTable;
  */
 public class EmployeeAddLecturer extends javax.swing.JFrame {
 
+    // Initialize variables
     DatabaseConnection connection  = new DatabaseConnection();
     LecturerManager lm = new LecturerManager();
     Lecturer lec = new Lecturer();
+    // Flag to identify change on save jButton function between insert and update
     int flag = 0;
     
     /**
@@ -30,6 +32,7 @@ public class EmployeeAddLecturer extends javax.swing.JFrame {
      */
     public EmployeeAddLecturer() {
         initComponents();
+        // Fill lecturers table when initialized by passing sql argument to method
         FillLecturerTable("SELECT *FROM lecturers ORDER BY name");
     }
 
@@ -328,6 +331,7 @@ public class EmployeeAddLecturer extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jFormattedTextFieldLecturerSearchActionPerformed
 
+    // Click to enable fields and set flag to 1 in order to save lecturer to database
     private void jButtonAddLecturerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddLecturerActionPerformed
         flag = 1;
         jFormattedTextFieldLecturerName.setEnabled(true);
@@ -344,7 +348,9 @@ public class EmployeeAddLecturer extends javax.swing.JFrame {
         jButton1.setEnabled(false);
     }//GEN-LAST:event_jButtonAddLecturerActionPerformed
 
+    // Save lecturer onto database and update
     private void jButtonSaveLecturerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveLecturerActionPerformed
+        // Check if any fields are empty before proceeding with action
         if (jFormattedTextFieldLecturerName.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Name Required");
             jFormattedTextFieldLecturerName.requestFocus();
@@ -354,6 +360,7 @@ public class EmployeeAddLecturer extends javax.swing.JFrame {
         } else if (jFormattedTextFieldLecturerPhone.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Phone Required");
         } else {
+            // If flag is set to 1 after pressing new lecturer, save information to database
             if (flag==1) {
                 lec.setName(jFormattedTextFieldLecturerName.getText());
                 lec.setPhone(jFormattedTextFieldLecturerPhone.getText());
@@ -373,6 +380,7 @@ public class EmployeeAddLecturer extends javax.swing.JFrame {
                 jButtonCancelLecturer.setEnabled(false);
                 FillLecturerTable("SELECT *FROM lecturers ORDER BY name");
             } else {
+                // If flag is set to 2 after clicking edit button, update information on database
                 lec.setName(jFormattedTextFieldLecturerName.getText());
                 lec.setPhone(jFormattedTextFieldLecturerPhone.getText());
                 lec.setAddress(jFormattedTextFieldLecturerAddress.getText());
@@ -395,6 +403,7 @@ public class EmployeeAddLecturer extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonSaveLecturerActionPerformed
 
+    // Cancel current performing action
     private void jButtonCancelLecturerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelLecturerActionPerformed
         jFormattedTextFieldLecturerName.setEnabled(!true);
         jFormattedTextFieldLecturerPhone.setEnabled(!true);
@@ -416,6 +425,7 @@ public class EmployeeAddLecturer extends javax.swing.JFrame {
         jFormattedTextFieldLecturerSearch.setEnabled(true);
     }//GEN-LAST:event_jButtonCancelLecturerActionPerformed
 
+    // Set flag to 2 and change save button function to update information
     private void jButtonEditLecturerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditLecturerActionPerformed
         flag = 2;
         jFormattedTextFieldLecturerName.setEnabled(true);
@@ -429,6 +439,7 @@ public class EmployeeAddLecturer extends javax.swing.JFrame {
         jButtonDeleteLecturer.setEnabled(false);
     }//GEN-LAST:event_jButtonEditLecturerActionPerformed
 
+    // Delete selected lecturer from database
     private void jButtonDeleteLecturerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteLecturerActionPerformed
         int answer = 0;
         answer = JOptionPane.showConfirmDialog(rootPane, "Confirm Delete?");
@@ -454,6 +465,7 @@ public class EmployeeAddLecturer extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonDeleteLecturerActionPerformed
 
+    // Search for lecturer on database and fill fields with data returned
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         lec.setSearch(jFormattedTextFieldLecturerSearch.getText());
         Lecturer lect = lm.SearchLecturer(lec);
@@ -468,6 +480,7 @@ public class EmployeeAddLecturer extends javax.swing.JFrame {
         jButton1.setEnabled(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    // Fill fields with information from row selected on jTable
     private void jTableLecturersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableLecturersMouseClicked
         String name = ""+jTableLecturers.getValueAt(jTableLecturers.getSelectedRow(), 0);
         connection.Connection();
@@ -500,6 +513,7 @@ public class EmployeeAddLecturer extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButtonLOGOFF2ActionPerformed
 
+    // Fill the lecturers jTable, looping on result set and adding to array list, which is table model
     private void FillLecturerTable(String sql) {
         ArrayList data = new ArrayList();
         String [] columns = new String[]{"name","phone","address","id","password"};

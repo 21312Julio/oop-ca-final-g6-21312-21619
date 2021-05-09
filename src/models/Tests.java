@@ -9,6 +9,8 @@ package models;
  *
  * @author julio
  */
+
+// Tests model class 
 public class Tests {
     
     private String activity;

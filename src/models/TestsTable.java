@@ -12,6 +12,8 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author julio
  */
+
+// Tests table model creation to fill jTables of the class
 public class TestsTable extends AbstractTableModel{
     
     private ArrayList rows = null;

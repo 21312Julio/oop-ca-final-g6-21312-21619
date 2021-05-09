@@ -83,6 +83,7 @@ public class StudentLoginFrame extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButtonExitActionPerformed
 
+    // Check if student information exists on database and matches before loggin 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
 
         try {

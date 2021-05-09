@@ -24,6 +24,7 @@ import models.TestsTable;
  */
 public class StudentMain extends javax.swing.JFrame {
 
+    // Initialize variables
     DatabaseConnection connection = new DatabaseConnection();
     StudentManager sm = new StudentManager();
     CourseManager cm = new CourseManager();
@@ -36,6 +37,8 @@ public class StudentMain extends javax.swing.JFrame {
      * Creates new form StudentMain
      */
     public StudentMain(String userid) {
+        // Based on given string of previous loggin screen, return values from the student and his
+        // course on the screen
         initComponents();
         jLabel2.setText("Welcome! Today is "+date);
         connection.Connection();
@@ -253,6 +256,7 @@ public class StudentMain extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButtonInformationActionPerformed
 
+    // Fill the tests jTable, looping on result set and adding to array list, which is table model
     private void FillTestsTable(String sql) { 
         ArrayList data = new ArrayList();
         String [] columns = new String[]{"testid","activitytype","testname","duedate",

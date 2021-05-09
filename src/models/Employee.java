@@ -9,6 +9,8 @@ package models;
  *
  * @author julio
  */
+
+// Employee model class with specific login information
 public class Employee {
     private final String login = "employee";
     private final String password = "employee123";

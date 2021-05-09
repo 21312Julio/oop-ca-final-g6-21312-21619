@@ -70,6 +70,7 @@ public class LoginSelectionFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    // Select as which the current user would like to loggin as
     private void jButtonLoginEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginEmployeeActionPerformed
         EmployeeLoginFrame screen = new EmployeeLoginFrame();
         screen.setVisible(true);

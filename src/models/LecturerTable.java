@@ -12,6 +12,8 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author julio
  */
+
+// Lecturer table model creation to fill jTables of the class
 public class LecturerTable extends AbstractTableModel{
     
     private ArrayList rows = null;

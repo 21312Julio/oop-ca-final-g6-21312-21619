@@ -20,13 +20,16 @@ import models.CoursesTable;
  */
 public class EmployeeAddCourse extends javax.swing.JFrame {
 
+    // Initialize variables
     DatabaseConnection connection = new DatabaseConnection();
     CourseManager cm = new CourseManager();
     Courses co = new Courses();
+    // Flag to identify change on save jButton function between insert and update
     int flag = 0;
     
     public EmployeeAddCourse() {
         initComponents();
+        // Fill the courses table when screen is initialized
         FillCourseTable("SELECT *FROM courses ORDER BY lecturer");
     }
 
@@ -334,7 +337,9 @@ public class EmployeeAddCourse extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonManageCoursesActionPerformed
 
+    // Save courses onto database or update
     private void jButtonSaveCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveCourseActionPerformed
+        // Check if any fields are empty before proceeding with action
         if(jFormattedTextFieldCourseId.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Id Required");
             jFormattedTextFieldCourseId.requestFocus();
@@ -348,6 +353,7 @@ public class EmployeeAddCourse extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Classroom Required");
             jFormattedTextFieldCourseClassroom.requestFocus();
         } else {
+            // If flag is set to 1 after pressing new course, save information to database
             if(flag==1) {
                 co.setId("VGC"+jFormattedTextFieldCourseId.getText());
                 co.setName(jFormattedTextFieldCourseName.getText());
@@ -370,6 +376,7 @@ public class EmployeeAddCourse extends javax.swing.JFrame {
                 jButtonCancelCourse.setEnabled(false);
                 FillCourseTable("SELECT *FROM courses ORDER BY lecturer");
             } else {
+                // If flag is set to 2 after clicking edit button, update information on database
                 co.setId(jFormattedTextFieldCourseId.getText());
                 co.setName(jFormattedTextFieldCourseName.getText());
                 co.setLecturer(jFormattedTextFieldCourseLecturer.getText());
@@ -394,6 +401,7 @@ public class EmployeeAddCourse extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonSaveCourseActionPerformed
 
+    // Click to enable fields and set flag to 1 in order to save course to database
     private void jButtonAddCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddCourseActionPerformed
         flag = 1;
         jFormattedTextFieldCourseId.setEnabled(true);
@@ -419,6 +427,7 @@ public class EmployeeAddCourse extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jFormattedTextFieldCourseNameActionPerformed
 
+    // Search for information on text field and fill fields with information returned
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         co.setSearch(jFormattedTextFieldCourseSearch.getText());
         Courses cou = cm.searchCourses(co);
@@ -437,6 +446,7 @@ public class EmployeeAddCourse extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    // Cancel current performing action
     private void jButtonCancelCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelCourseActionPerformed
         jFormattedTextFieldCourseId.setEnabled(!true);
         jFormattedTextFieldCourseName.setEnabled(!true);
@@ -457,6 +467,7 @@ public class EmployeeAddCourse extends javax.swing.JFrame {
         jFormattedTextFieldCourseSearch.setEnabled(true);
     }//GEN-LAST:event_jButtonCancelCourseActionPerformed
 
+    // Set flag to 2 and change save button function to update
     private void jButtonEditCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditCourseActionPerformed
         flag = 2;
         jFormattedTextFieldCourseName.setEnabled(true);
@@ -471,6 +482,7 @@ public class EmployeeAddCourse extends javax.swing.JFrame {
         jButtonDeleteCourse.setEnabled(false);
     }//GEN-LAST:event_jButtonEditCourseActionPerformed
 
+    // Delete course from database
     private void jButtonDeleteCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteCourseActionPerformed
         int answer = 0;
         answer = JOptionPane.showConfirmDialog(rootPane, "Confirm Delete?");
@@ -495,6 +507,7 @@ public class EmployeeAddCourse extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonDeleteCourseActionPerformed
 
+    // Fill in fields with information from jTable row clicked
     private void jTableCoursesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableCoursesMouseClicked
         String id = ""+jTableCourses.getValueAt(jTableCourses.getSelectedRow(), 0);
         connection.Connection();
@@ -544,7 +557,7 @@ public class EmployeeAddCourse extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButtonLOGOFFActionPerformed
 
-    
+    // Fill the courses jTable, looping on result set and adding to array list, which is table model
     public void FillCourseTable(String sql) {
         ArrayList data = new ArrayList();
         String [] columns = new String []{"id","name","lecturer","classroom",

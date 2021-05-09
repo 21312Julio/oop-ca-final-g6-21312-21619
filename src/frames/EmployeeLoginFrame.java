@@ -73,6 +73,7 @@ public class EmployeeLoginFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    // Checking if employee id and password match the ones in class
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
         Employee emp = new Employee ();
         if(jTextFieldUser.getText().equals(emp.getLogin()) &&

@@ -10,6 +10,7 @@ package models;
  * @author julio
  */
 
+// Students model class
 public class Student {
     
     private String name;
@@ -86,6 +87,7 @@ public class Student {
         this.id = id;
     }
     
+    // Automatically create and id for student base on name and passport
     public String createId() {
         String name = this.name.toLowerCase();
         String ftName = name.substring(0,2);

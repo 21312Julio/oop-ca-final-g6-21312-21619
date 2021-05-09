@@ -87,6 +87,7 @@ public class LecturerLoginFrame extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButtonExitActionPerformed
 
+    // Check if lecturer exists in database before logging in 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
 
         try {

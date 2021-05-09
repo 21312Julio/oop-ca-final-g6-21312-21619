@@ -15,11 +15,14 @@ import models.Student;
  *
  * @author julio
  */
+
+// Manage student class in database from employee manage students tab
 public class StudentManager {
     
     DatabaseConnection connect = new DatabaseConnection();
     Student st = new Student();
     
+    // Insert new student in database from employee manage students tab
     public void SaveStudent(Student st) {
         connect.Connection();
         
@@ -42,6 +45,7 @@ public class StudentManager {
         }
     }
     
+    // Search for students from inside employee manage students tab
     public Student SearchStudent(Student st) {
         connect.Connection();
         
@@ -65,6 +69,7 @@ public class StudentManager {
         return st;
     }
     
+    // Return student values that matches current logged in user and display on screen
     public Student SearchStudentById(String id) {
         connect.Connection();
         
@@ -88,6 +93,7 @@ public class StudentManager {
         return st;
     }
     
+    // Edit students from inside employee manage students tab
     public void EditStudent(Student st) {
         connect.Connection();
         
@@ -109,6 +115,7 @@ public class StudentManager {
         connect.Desconnect();
     }
     
+    // Delete students from inside employee manage students tab
     public void DeleteStudent(Student st) {
         connect.Connection();
         

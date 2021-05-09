@@ -11,6 +11,8 @@ import java.util.HashMap;
  *
  * @author julio
  */
+
+// Attendance model class
 public class Attendance {
     
     private String search;

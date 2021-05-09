@@ -22,6 +22,7 @@ import models.StudentsTable;
  */
 public class LecturerCourse extends javax.swing.JFrame {
 
+    //Initialize variables
     DatabaseConnection connection = new DatabaseConnection();
     CourseManager cm = new CourseManager();
     Courses co = new Courses();
@@ -32,6 +33,7 @@ public class LecturerCourse extends javax.swing.JFrame {
      */
     public LecturerCourse() {
         initComponents();
+        // Fill table of courses and students upon opening tab
         FillCourseTable("SELECT *FROM courses ORDER BY lecturer");
         FillStudentTable("SELECT *FROM students ORDER BY name");
     }
@@ -204,6 +206,7 @@ public class LecturerCourse extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButtonTestsActionPerformed
 
+    // Search for courses that match the lecturer name specified on search
     private void jButtonSearchForLecturerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchForLecturerActionPerformed
         co.setSearch(jFormattedTextFieldSearchLecturer.getText());
         FillCourseTable("SELECT *FROM courses WHERE lecturer LIKE'%" +
@@ -216,6 +219,8 @@ public class LecturerCourse extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButtonLOGOFFActionPerformed
 
+    // Return course classroom on table below by searching in database and returning values
+    // That match the course id of selected row on course table above
     private void jTableCoursesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableCoursesMouseClicked
                                           
         String id = ""+jTableCourses.getValueAt(jTableCourses.getSelectedRow(), 0);
@@ -227,6 +232,7 @@ public class LecturerCourse extends javax.swing.JFrame {
         connection.Desconnect();
     }//GEN-LAST:event_jTableCoursesMouseClicked
 
+    // Fill the courses jTable, looping on result set and adding to array list, which is table model
     public void FillCourseTable(String sql) {
         ArrayList data = new ArrayList();
         String [] columns = new String []{"id","name","lecturer","classroom",
@@ -267,6 +273,7 @@ public class LecturerCourse extends javax.swing.JFrame {
         connection.Desconnect();
     }  
     
+    // Fill the students jTable, looping on result set and adding to array list, which is table model
     private void FillStudentTable(String sql) { 
         ArrayList data = new ArrayList();
         String [] columns = new String[]{"id","name","nationality","address",

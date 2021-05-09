@@ -22,13 +22,16 @@ import models.StudentsTable;
  */
 public class EmployeeAddStudent extends javax.swing.JFrame {
 
+    // Initialize variables
     DatabaseConnection connection = new DatabaseConnection();
     StudentManager sm = new StudentManager();
     Student st = new Student();
+    // Flag to identify change on save jButton function between insert and update
     int flag = 0;
     
     public EmployeeAddStudent() {
         initComponents();
+        // Fill students table when tab is created by passing sql query
         FillStudentTable("SELECT *FROM students ORDER BY name");
     }
 
@@ -363,6 +366,7 @@ public class EmployeeAddStudent extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButtonManageCoursesActionPerformed
 
+    // Fill students table fields with information from row selected on jTable
     private void jTableStudentsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableStudentsMouseClicked
         String id = ""+jTableStudents.getValueAt(jTableStudents.getSelectedRow(), 0);
         connection.Connection();
@@ -388,6 +392,7 @@ public class EmployeeAddStudent extends javax.swing.JFrame {
         connection.Desconnect();
     }//GEN-LAST:event_jTableStudentsMouseClicked
 
+    // Search for student in database and fill fields with information returned
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         st.setSearch(jFormattedTextFieldStudentSearch.getText());
         Student stu = sm.SearchStudent(st);
@@ -404,6 +409,7 @@ public class EmployeeAddStudent extends javax.swing.JFrame {
         jButton1.setEnabled(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    // Set flag to 1 and change save button function to save to database
     private void jButtonAddStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddStudentActionPerformed
         flag = 1;
         jFormattedTextFieldStudentName.setEnabled(true);
@@ -426,7 +432,9 @@ public class EmployeeAddStudent extends javax.swing.JFrame {
         jButton1.setEnabled(false);
     }//GEN-LAST:event_jButtonAddStudentActionPerformed
 
+    // Save students to database or update them
     private void jButtonSaveStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveStudentActionPerformed
+        // Checking if any fields are empty before proceeding
         if (jFormattedTextFieldStudentName.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Name Required");
             jFormattedTextFieldStudentName.requestFocus();
@@ -447,6 +455,7 @@ public class EmployeeAddStudent extends javax.swing.JFrame {
             jFormattedTextFieldCourseID.requestFocus();
         } else {
             if (flag==1) {
+                // If flag is set to 1, add new student to database
                 st.setName(jFormattedTextFieldStudentName.getText());
                 st.setNationality(jFormattedTextFieldStudentNatio.getText());
                 st.setAddress(jFormattedTextFieldStudentAddress.getText());
@@ -475,6 +484,7 @@ public class EmployeeAddStudent extends javax.swing.JFrame {
                 FillStudentTable("SELECT *FROM students ORDER BY name");
             }
             else {
+                // If flag is set to 2, update current selected student on database
                 st.setId(jFormattedTextFieldStudentId.getText());
                 st.setName(jFormattedTextFieldStudentName.getText());
                 st.setNationality(jFormattedTextFieldStudentNatio.getText());
@@ -505,6 +515,7 @@ public class EmployeeAddStudent extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonSaveStudentActionPerformed
 
+    // Cancel current performing action
     private void jButtonCancelStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelStudentActionPerformed
        jFormattedTextFieldStudentName.setEnabled(!true);
         jFormattedTextFieldStudentNatio.setEnabled(!true);
@@ -531,6 +542,7 @@ public class EmployeeAddStudent extends javax.swing.JFrame {
         jFormattedTextFieldStudentSearch.setEnabled(true);
     }//GEN-LAST:event_jButtonCancelStudentActionPerformed
 
+    // Change flag to 2 and switch save button function to update instead of insert
     private void jButtonEditStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditStudentActionPerformed
         flag = 2;
         jFormattedTextFieldStudentName.setEnabled(true);
@@ -545,6 +557,7 @@ public class EmployeeAddStudent extends javax.swing.JFrame {
         jButtonDeleteStudent.setEnabled(false);
     }//GEN-LAST:event_jButtonEditStudentActionPerformed
 
+    // Delete selected student from database
     private void jButtonDeleteStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteStudentActionPerformed
         int answer = 0;
         answer = JOptionPane.showConfirmDialog(rootPane, "Confirm Delete?");
@@ -599,6 +612,7 @@ public class EmployeeAddStudent extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButtonLOGOFFActionPerformed
 
+    // Fill the students jTable, looping on result set and adding to array list, which is table model
     private void FillStudentTable(String sql) { 
         ArrayList data = new ArrayList();
         String [] columns = new String[]{"id","name","nationality","address",

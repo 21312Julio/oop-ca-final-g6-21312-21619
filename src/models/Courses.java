@@ -9,6 +9,8 @@ package models;
  *
  * @author julio
  */
+
+// Courses model class
 public class Courses {
     
     private String id;

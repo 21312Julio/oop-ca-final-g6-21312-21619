@@ -14,6 +14,8 @@ public class LecturerMain extends javax.swing.JFrame {
     /**
      * Creates new form LecturerMain
      */
+    
+    // Main screen for lecturers to choose operation
     public LecturerMain() {
         initComponents();
     }

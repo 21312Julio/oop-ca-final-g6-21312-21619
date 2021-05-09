@@ -11,6 +11,8 @@ import javax.swing.JOptionPane;
  *
  * @author julio
  */
+
+// Handle all SQL queries executed inside the program
 public class DatabaseConnection {
     
     public Statement stm;
@@ -20,6 +22,8 @@ public class DatabaseConnection {
     private final String DB_PASSWORD = "gurthang.1";
     public java.sql.Connection con;
     
+    
+    // Start connection with database
     public void Connection() {
         
         try {
@@ -32,6 +36,7 @@ public class DatabaseConnection {
         
     }
     
+    // SQL Table creation statement for the attendance tables
     public void ExecuteSQLCreate(String sql) {
         try {
             stm = con.createStatement(rs.TYPE_SCROLL_INSENSITIVE, rs.CONCUR_READ_ONLY);
@@ -42,6 +47,7 @@ public class DatabaseConnection {
         }
     }
     
+    // Execute queries and return values inside the database
     public void ExecuteSQL(String sql) {
         try {
             stm = con.createStatement(rs.TYPE_SCROLL_INSENSITIVE, rs.CONCUR_READ_ONLY);
@@ -52,6 +58,7 @@ public class DatabaseConnection {
         
     }
     
+    // Desconnect from current database session
     public void Desconnect() {
         
         try {

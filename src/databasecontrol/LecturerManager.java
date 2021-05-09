@@ -15,11 +15,14 @@ import java.sql.*;
  *
  * @author julio
  */
+
+// Manage lecturer class creation and edit inside database from employee manage lecturers tab
 public class LecturerManager {
     
     DatabaseConnection connect = new DatabaseConnection();
     Lecturer lec = new Lecturer();
     
+    // Insert lecturer in database from employee manage lecturers tab
     public void SaveLecturer(Lecturer lec) {
         connect.Connection();
         
@@ -39,6 +42,7 @@ public class LecturerManager {
         }
     }
     
+    // Search for lecturers from inside employee manage lecturers tab
     public Lecturer SearchLecturer(Lecturer lec) {
         connect.Connection();
         
@@ -60,6 +64,7 @@ public class LecturerManager {
         return lec;
     }
     
+    // Edit lecturers from inside employee manage lecturers tab
     public void EditLecturer(Lecturer lec) {
         connect.Connection();
         
@@ -80,6 +85,7 @@ public class LecturerManager {
         connect.Desconnect();
     }
     
+    // Delete lecturers from inside employee manage lecturers tab
     public void DeleteLecturer(Lecturer lec) {
         connect.Connection();
         

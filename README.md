@@ -10,12 +10,12 @@
 * Git | https://github.com/21312Julio/oop-ca-final-g6-21312-21619.git
 * Youtube | https://youtu.be/vqiRoNoo9GQ
 * Figma | https://www.figma.com/file/B3dx4DT1u1hVfqj7BPRYLj/CollegeCAOOPApplication?node-id=0%3A1
-
-## Software, Third Party Libraries and Report
+* Final Report (Database Schema Included) | https://drive.google.com/drive/folders/1JkdHrxbUnHe4_mrnE1G9cD5FpeF2MNZ2?usp=sharing
+ 
+## Software and Third Party Libraries
 * NetBeans 12.3 | https://netbeans.apache.org/download/index.html
 * MySQL Workbench 8.0.20 | https://downloads.mysql.com/archives/workbench/
 * Java Database MYSQL Connector | https://dev.mysql.com/downloads/connector/j/
-* Final Report (Database Schema Included) | https://dorsetdemo-my.sharepoint.com/:f:/g/personal/21312_student_dorset-college_ie/Elvrmnjr6q5KuurnYLB45_MB-ZtBEeEpW8QMxxGNJrmzCQ?e=o03HMu
 
 ## How to Reproduce
 The first thing you want to do after cloning this repository and executing the dbschema in your workbench, is adding the .jar files to your library in order to 

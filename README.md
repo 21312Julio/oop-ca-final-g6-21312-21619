@@ -10,7 +10,7 @@
 * Git | https://github.com/21312Julio/oop-ca-final-g6-21312-21619.git
 * Youtube | https://youtu.be/vqiRoNoo9GQ
 * Figma | https://www.figma.com/file/B3dx4DT1u1hVfqj7BPRYLj/CollegeCAOOPApplication?node-id=0%3A1
-* Final Report (Database Schema Included) | https://drive.google.com/drive/folders/1JkdHrxbUnHe4_mrnE1G9cD5FpeF2MNZ2?usp=sharing
+* Final Report & Schema | https://drive.google.com/drive/folders/1JkdHrxbUnHe4_mrnE1G9cD5FpeF2MNZ2?usp=sharing
  
 ## Software and Third Party Libraries
 * NetBeans 12.3 | https://netbeans.apache.org/download/index.html

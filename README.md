@@ -10,14 +10,14 @@
 * Git | https://github.com/21312Julio/oop-ca-final-g6-21312-21619.git
 * Youtube | 
 
-## Softwawre, Third Party Libraries and Report
+## Software, Third Party Libraries and Report
 * NetBeans 12.3 | https://netbeans.apache.org/download/index.html
-* MySQL Workspace 8.0.20 | https://downloads.mysql.com/archives/workbench/
+* MySQL Workbench 8.0.20 | https://downloads.mysql.com/archives/workbench/
 * Java Database MYSQL Connector | https://dev.mysql.com/downloads/connector/j/
-* Final Report | 
+* Final Report (Database Schema Included) | 
 
 ## How to Reproduce
-The first thing you want to do after cloning this repository, is adding the .jar files to your library in order to 
+The first thing you want to do after cloning this repository and executing the dbschema in your workbench, is adding the .jar files to your library in order to 
 connect to the database. First, you want to right-click libraries on your IDE and select "Add JAR/Folder...".
 
 ![](/src/walkthrough/first.png)

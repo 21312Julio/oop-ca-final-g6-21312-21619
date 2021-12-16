@@ -4,7 +4,6 @@
 * Runtime: Java(TM) SE Runtime Environment 16+36-2231
 
 ## Julio Costa 21312
-## Lucas Costa 21619
 
 ## GitHub Link, Figma and Youtube Walkthrough
 * Git | https://github.com/21312Julio/oop-ca-final-g6-21312-21619.git
